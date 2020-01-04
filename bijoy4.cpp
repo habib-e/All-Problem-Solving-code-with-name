@@ -1,0 +1,65 @@
+#include<bits/stdc++.h>
+#include<cstdio>
+#include<string.h>
+using namespace std;
+int cnt,m,f,i,k,l,j;
+int main()
+{
+    char s[100001],s1[100001],s2[100001],r1[100001],r2[100001];
+    while(cin>>s)
+    {
+        m=strlen(s);
+        for(i=0;i<m;i++)
+        {
+            if(s[0]==s[i])
+                cnt++;
+            else
+            {
+                f=1;
+            }
+        }
+        if(cnt==m)
+        {
+            cout<<s<<endl;
+            continue;
+        }
+        if(f==1)
+        {
+            for(i=0;i<m/2;i++)
+            {
+                s1[i]=s[i];
+            }
+            for(i=m/2;i<m;i++)
+            {
+                s2[i]=s[i];
+            }
+            s1[m/2]='\0';
+            s2[m/2]='\0';
+        }
+        k=strcmp(s1,s2);
+        if(k==0)
+        {
+            l=1;
+            cout<<s<<endl;
+            continue;
+        }
+        if(l==0)
+        {
+            for(i=0;i<m;i++)
+            {
+                r1[i]=s[i];
+            }
+            r1[m]=s[0];
+            j=m+1;
+            for(i=m-1;i>=0;i--)
+            {
+                r1[j]=s[i];
+                j++;
+            }
+            r1[m*2+1]='\0';
+            cout<<r1<<endl;
+            continue;
+        }
+        i=j=m=f=k=l=0;
+    }
+}
